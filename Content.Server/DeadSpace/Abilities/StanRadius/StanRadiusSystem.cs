@@ -174,7 +174,7 @@ public sealed partial class StunRadiusSystem : EntitySystem
             if (!CanGravPulseAffect(entity))
                 continue;
 
-            _stun.TryParalyze(entity, TimeSpan.FromSeconds(component.ParalyzeTime), true);
+            _stun.TryUpdateParalyzeDuration(entity, TimeSpan.FromSeconds(component.ParalyzeTime));
 
             var displacement = epicenter - _transform.GetWorldPosition(entity, xformQuery);
             var distance2 = displacement.LengthSquared();
